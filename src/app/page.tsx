@@ -37,18 +37,15 @@ export default function Home() {
     { name: "라이프스타일", count: 3 },
     { name: "여행", count: 2 },
     { name: "요리", count: 1 },
-  ])
-
-  const [serviceShortcuts] = useState<Array<{ name: string; icon: string }>>([
-    { name: "네이버 게임", icon: "🎮" },
-    { name: "e스포츠", icon: "🏆" },
-    { name: "오리지널 시리즈", icon: "👑" },
-    { name: "PC 게임", icon: "💻" },
-    { name: "지지직 라운지", icon: "⚡" },
   ]);
 
   const handleEditorChange = (content: string) => {
     setEditorContent(content);
+  };
+
+  const handleSave = () => {
+    console.log("저장된 에디터 내용:", editorContent);
+    // 여기에 editorContent를 서버로 전송하거나 다른 로직을 추가할 수 있습니다.
   };
 
   return (
@@ -100,14 +97,14 @@ export default function Home() {
             {/* Example Blog Post Card 3 */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200 cursor-pointer dark:bg-gray-800 dark:border-gray-700 dark:hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Third Blog Post</h3>
-              <p className="text-gray-600 mb-4 text-sm leading-normal dark:text-gray-300">And here's a third one to get you started.</p>
+              <p className="text-gray-600 mb-4 text-sm leading-normal dark:text-gray-300">And here&apos;s a third one to get you started.</p>
               <Button variant="link" className="text-blue-600 hover:text-blue-800 p-0 h-auto dark:text-blue-400 dark:hover:text-blue-300">View Post</Button>
             </div>
           </section>
 
           <div className="mt-12 mb-32 p-8 bg-white rounded-xl shadow-sm grid lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-1 lg:text-left dark:bg-gray-800 dark:shadow-lg">
             <RichTextEditor onEditorChange={handleEditorChange} />
-            <Button className="mt-6 px-6 py-3 text-lg">저장</Button>
+            <Button className="mt-6 px-6 py-3 text-lg" onClick={handleSave}>저장</Button>
           </div>
         </main>
 
@@ -123,7 +120,7 @@ export default function Home() {
                 <button className="hover:text-gray-900 transition-colors duration-200 dark:hover:text-white">ᐱ</button>
               </div>
             </h3>
-            
+          
             <Button variant="default" className="w-full mt-4 bg-gray-200 text-gray-900 hover:bg-gray-300 rounded-md dark:bg-gray-700 dark:hover:bg-gray-600">더보기</Button>
           </div>
 
